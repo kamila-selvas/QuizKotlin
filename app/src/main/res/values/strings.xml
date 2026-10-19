@@ -1,3 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">QuizKotlin</string>
+    <string name="app_name">Quiz Kotlin</string>
+    <string name="titulo_app">Quiz Kotlin</string>
+    <string name="agregar_pregunta">Agregar pregunta</string>
+
+    <string name="progreso_pregunta">Pregunta %1$d de %2$d</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="ver_resultado">Ver resultado</string>
+
+    <string name="quiz_terminado">¡Quiz terminado!</string>
+    <string name="puntuacion">Tu puntuación: %1$d / %2$d</string>
+    <string name="reiniciar">Reiniciar</string>
+
+    <string name="form_titulo">Nueva pregunta</string>
+    <string name="form_enunciado">Enunciado</string>
+    <string name="form_indicacion">Escribe las opciones y marca la correcta</string>
+    <string name="form_opcion">Opción %1$d</string>
+    <string name="form_guardar">Guardar pregunta</string>
+    <string name="form_cancelar">Cancelar</string>
 </resources>
