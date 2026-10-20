@@ -6,7 +6,6 @@ import com.example.quizkotlin.data.fuentes.PreguntasBase
 import com.example.quizkotlin.data.fuentes.PreguntasGuardadas
 import com.example.quizkotlin.presentation.FabricaViewModel
 
-/** Arma las piezas de la app una sola vez: fuentes de datos -> repositorio -> fábrica. */
 class Contenedor(private val context: Context) {
 
     private val base: PreguntasBase by lazy {

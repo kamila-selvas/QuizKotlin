@@ -29,10 +29,6 @@ import com.example.quizkotlin.presentation.componentes.FormularioPregunta
 import com.example.quizkotlin.presentation.componentes.PantallaResultado
 import com.example.quizkotlin.presentation.componentes.PreguntaActual
 
-/**
- * Pantalla con estado: lee el estado del ViewModel y le pasa a TriviaContenido
- * las acciones que llaman de regreso al ViewModel.
- */
 @Composable
 fun TriviaScreen(
     viewModel: TriviaViewModel = viewModel(
@@ -56,10 +52,6 @@ fun TriviaScreen(
     )
 }
 
-/**
- * Pantalla sin estado: no conoce el ViewModel ni de donde vienen los datos.
- * Solo dibuja lo que dice uiState y avisa los eventos con lambdas.
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TriviaContenido(
@@ -79,7 +71,6 @@ fun TriviaContenido(
     val snackbarHostState = remember { SnackbarHostState() }
     val textoMensaje = uiState.mensaje?.let { stringResource(it) }
 
-    // Efecto secundario: cuando llega un mensaje nuevo, se muestra una vez y se avisa que ya se mostró.
     LaunchedEffect(textoMensaje) {
         if (textoMensaje != null) {
             snackbarHostState.showSnackbar(textoMensaje)

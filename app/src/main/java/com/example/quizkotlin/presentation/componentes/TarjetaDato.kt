@@ -14,7 +14,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
-/** Tarjeta con un numero grande y su etiqueta (por ejemplo: 8 / Aciertos). */
 @Composable
 fun TarjetaDato(
     valor: String,

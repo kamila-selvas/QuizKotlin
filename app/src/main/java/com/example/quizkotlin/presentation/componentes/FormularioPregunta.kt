@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import com.example.quizkotlin.R
 import com.example.quizkotlin.presentation.FormularioUi
 
-/** Formulario para registrar una pregunta nueva. Todo le llega por parametros. */
 @Composable
 fun FormularioPregunta(
     formulario: FormularioUi,

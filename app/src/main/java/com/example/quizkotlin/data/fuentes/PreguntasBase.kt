@@ -2,7 +2,6 @@ package com.example.quizkotlin.data.fuentes
 
 import com.example.quizkotlin.data.modelo.Pregunta
 
-/** Preguntas base: vienen incluidas en la app, guardadas en memoria. */
 class PreguntasBase {
 
     private val lista = listOf(

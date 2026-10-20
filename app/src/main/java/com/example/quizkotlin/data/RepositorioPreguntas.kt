@@ -6,10 +6,6 @@ import com.example.quizkotlin.data.modelo.Pregunta
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-/**
- * Unica puerta de entrada a los datos: junta las preguntas base con las del usuario.
- * El ViewModel solo habla con esta clase, no sabe de donde vienen los datos.
- */
 class RepositorioPreguntas(
     private val base: PreguntasBase,
     private val guardadas: PreguntasGuardadas

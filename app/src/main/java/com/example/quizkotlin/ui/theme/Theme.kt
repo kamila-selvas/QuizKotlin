@@ -5,7 +5,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// Colores propios de la app
 val ColorAcierto = Color(0xFF2E7D32)
 val ColorError = Color(0xFFB3261E)
 
@@ -22,7 +21,6 @@ private val EsquemaMorado = lightColorScheme(
     outlineVariant = Color(0xFFCAC4D0)
 )
 
-/** Tema de la app: Material 3 con la paleta morada de los mockups. */
 @Composable
 fun QuizKotlinTheme(content: @Composable () -> Unit) {
     MaterialTheme(colorScheme = EsquemaMorado, content = content)

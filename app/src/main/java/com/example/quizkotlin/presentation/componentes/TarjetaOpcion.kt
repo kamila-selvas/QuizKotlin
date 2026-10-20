@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
-/** Una opcion de respuesta con su letra. No guarda estado: recibe si esta elegida y avisa cuando la tocan. */
 @Composable
 fun TarjetaOpcion(
     letra: Char,

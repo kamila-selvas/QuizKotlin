@@ -12,7 +12,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.quizkotlin.R
 
-/** Etiqueta pequeña que muestra el puntaje actual. */
 @Composable
 fun PastillaPuntaje(puntaje: Int) {
     Surface(

@@ -12,15 +12,12 @@ import kotlinx.coroutines.flow.map
 import org.json.JSONArray
 import org.json.JSONObject
 
-// Crea (una sola vez) el archivo donde DataStore guarda los datos.
 private val Context.almacen: DataStore<Preferences> by preferencesDataStore(name = "quiz_datos")
 
-/** Preguntas que escribe el usuario: se guardan con DataStore y siguen ahi al cerrar la app. */
 class PreguntasGuardadas(private val context: Context) {
 
     private val clavePreguntas = stringPreferencesKey("preguntas_usuario")
 
-    // Flow: vuelve a emitir la lista cada vez que se guarda una pregunta nueva.
     val preguntas: Flow<List<Pregunta>> = context.almacen.data.map { preferencias ->
         preferencias[clavePreguntas]?.let { desdeJson(it) } ?: emptyList()
     }
@@ -32,7 +29,6 @@ class PreguntasGuardadas(private val context: Context) {
         }
     }
 
-    // DataStore guarda texto, asi que la lista se convierte a JSON y de regreso.
     private fun aJson(lista: List<Pregunta>): String {
         val arreglo = JSONArray()
         lista.forEach { pregunta ->
