@@ -122,6 +122,8 @@ fun TriviaContenido(
                 uiState.terminado -> PantallaResultado(
                     puntaje = uiState.puntaje,
                     total = uiState.preguntas.size,
+                    errores = uiState.errores,
+                    porcentaje = uiState.porcentaje,
                     onReiniciar = onReiniciar
                 )
                 else -> PreguntaActual(

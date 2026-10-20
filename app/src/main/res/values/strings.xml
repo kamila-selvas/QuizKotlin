@@ -9,7 +9,11 @@
     <string name="ver_resultado">Ver resultado</string>
 
     <string name="quiz_terminado">¡Quiz terminado!</string>
-    <string name="puntuacion">Tu puntuación: %1$d / %2$d</string>
+    <string name="puntaje_fraccion">%1$d/%2$d</string>
+    <string name="porcentaje_aciertos">%1$d%% de aciertos</string>
+    <string name="aciertos">Aciertos</string>
+    <string name="errores">Errores</string>
+    <string name="puntaje_pastilla">Puntaje: %1$d</string>
     <string name="reiniciar">Reiniciar</string>
 
     <string name="form_titulo">Nueva pregunta</string>

@@ -31,6 +31,12 @@ data class TriviaUiState(
     val esUltima: Boolean
         get() = indiceActual == preguntas.lastIndex
 
+    val errores: Int
+        get() = preguntas.size - puntaje
+
+    val porcentaje: Int
+        get() = if (preguntas.isEmpty()) 0 else puntaje * 100 / preguntas.size
+
     val progreso: Float
         get() = if (preguntas.isEmpty()) 0f else (indiceActual + 1f) / preguntas.size
 }
