@@ -5,11 +5,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -47,7 +51,8 @@ fun TriviaScreen(
         onOpcionChange = { indice, texto -> viewModel.cambiarOpcion(indice, texto) },
         onCorrectaChange = { indice -> viewModel.cambiarCorrecta(indice) },
         onGuardar = { viewModel.guardarPregunta() },
-        onCancelar = { viewModel.cerrarFormulario() }
+        onCancelar = { viewModel.cerrarFormulario() },
+        onMensajeMostrado = { viewModel.mensajeMostrado() }
     )
 }
 
@@ -68,10 +73,23 @@ fun TriviaContenido(
     onCorrectaChange: (Int) -> Unit,
     onGuardar: () -> Unit,
     onCancelar: () -> Unit,
+    onMensajeMostrado: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
+    val textoMensaje = uiState.mensaje?.let { stringResource(it) }
+
+    // Efecto secundario: cuando llega un mensaje nuevo, se muestra una vez y se avisa que ya se mostró.
+    LaunchedEffect(textoMensaje) {
+        if (textoMensaje != null) {
+            snackbarHostState.showSnackbar(textoMensaje)
+            onMensajeMostrado()
+        }
+    }
+
     Scaffold(
         modifier = modifier,
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.titulo_app)) },
@@ -139,7 +157,8 @@ private fun PreguntaPreview() {
         onOpcionChange = { _, _ -> },
         onCorrectaChange = {},
         onGuardar = {},
-        onCancelar = {}
+        onCancelar = {},
+        onMensajeMostrado = {}
     )
 }
 
@@ -156,6 +175,7 @@ private fun ResultadoPreview() {
         onOpcionChange = { _, _ -> },
         onCorrectaChange = {},
         onGuardar = {},
-        onCancelar = {}
+        onCancelar = {},
+        onMensajeMostrado = {}
     )
 }

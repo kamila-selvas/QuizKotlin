@@ -1,5 +1,6 @@
 package com.example.quizkotlin.presentation
 
+import androidx.annotation.StringRes
 import com.example.quizkotlin.data.modelo.CANTIDAD_OPCIONES
 import com.example.quizkotlin.data.modelo.Pregunta
 
@@ -21,7 +22,8 @@ data class TriviaUiState(
     val puntaje: Int = 0,
     val terminado: Boolean = false,
     val agregando: Boolean = false,       // true = se muestra el formulario
-    val formulario: FormularioUi = FormularioUi()
+    val formulario: FormularioUi = FormularioUi(),
+    @StringRes val mensaje: Int? = null   // aviso de una sola vez (ej. "Pregunta guardada")
 ) {
     val preguntaActual: Pregunta?
         get() = preguntas.getOrNull(indiceActual)

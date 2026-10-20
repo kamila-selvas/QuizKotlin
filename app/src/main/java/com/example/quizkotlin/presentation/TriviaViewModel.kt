@@ -2,6 +2,7 @@ package com.example.quizkotlin.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.quizkotlin.R
 import com.example.quizkotlin.data.RepositorioPreguntas
 import com.example.quizkotlin.data.modelo.Pregunta
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -102,7 +103,15 @@ class TriviaViewModel(
         )
         viewModelScope.launch {
             repositorio.agregar(nueva)
-            reiniciar()
+            // Reinicia el quiz y deja un aviso para que la pantalla lo muestre una sola vez.
+            _uiState.update {
+                TriviaUiState(preguntas = it.preguntas, mensaje = R.string.pregunta_guardada)
+            }
         }
+    }
+
+    // La pantalla avisa que ya mostró el mensaje, para que no se repita.
+    fun mensajeMostrado() {
+        _uiState.update { it.copy(mensaje = null) }
     }
 }
